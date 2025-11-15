@@ -118,7 +118,6 @@ EOF
     cat << EOF > "${SYSTEMD_DIR}/hqplayer.slice"
 [Slice]
 AllowedCPUs=${HQPLAYER_CPUS}
-CPUQuota=100%
 EOF
     echo "SUCCESS: Systemd slices created."
 }
