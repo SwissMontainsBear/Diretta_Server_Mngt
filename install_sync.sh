@@ -231,7 +231,6 @@ ConditionPathExists=${USER_HOME}/DirettaAlsaHost
 [Service]
 ExecStartPre=modprobe snd_pcm
 ExecStart=modprobe alsa_bridge
-ExecStop=rmmod alsa_bridge
 Restart=no
 Type=simple
 
@@ -254,7 +253,6 @@ ConditionPathExists=${USER_HOME}/DirettaAlsaHost
 [Service]
 ExecStartPre=modprobe snd_pcm
 ExecStart=modprobe alsa_bridge
-ExecStop=rmmod alsa_bridge
 Restart=no
 Type=simple
 
