@@ -176,15 +176,6 @@ else
     echo "✓ Service already enabled"
 fi
 
-# Update GRUB (disable audit)
-echo ""
-echo "=== Updating GRUB configuration ==="
-if sudo grubby --update-kernel=ALL --args="audit=0"; then
-    echo "✓ GRUB updated (audit=0)"
-else
-    echo "✗ Warning: Failed to update GRUB"
-fi
-
 # Start service
 echo ""
 echo "=== Starting MemoryPlay service ==="
