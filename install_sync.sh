@@ -239,31 +239,6 @@ WantedBy=multi-user.target
 EOF
     
     echo "  ✓ diretta_bridge_driver.service created"
-else
-    # Check if ExecStop is configured
-    if ! grep -q "^ExecStop=" "${BRIDGE_SERVICE_FILE}"; then
-        echo "  Updating ${BRIDGE_SERVICE_FILE} (adding ExecStop)..."
-        
-        sudo tee "${BRIDGE_SERVICE_FILE}" > /dev/null <<EOF
-[Unit]
-Description = Diretta Alsa Bridge Driver
-After=local-fs.target
-ConditionPathExists=${USER_HOME}/DirettaAlsaHost
-
-[Service]
-ExecStartPre=modprobe snd_pcm
-ExecStart=modprobe alsa_bridge
-Restart=no
-Type=simple
-
-[Install]
-WantedBy=multi-user.target
-EOF
-        
-        echo "  ✓ diretta_bridge_driver.service updated"
-    else
-        echo "  ✓ diretta_bridge_driver.service already correctly configured"
-    fi
 fi
 
 # Enable the bridge driver service
